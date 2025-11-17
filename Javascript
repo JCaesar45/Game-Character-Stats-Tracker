@@ -1,0 +1,112 @@
+// Define the GameCharacter class in JS
+class GameCharacter {
+  constructor(name) {
+    this._name = name;
+    this._health = 100;
+    this._mana = 50;
+    this._level = 1;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  get health() {
+    return this._health;
+  }
+
+  set health(value) {
+    if (value < 0) {
+      this._health = 0;
+    } else if (value > 100) {
+      this._health = 100;
+    } else {
+      this._health = value;
+    }
+  }
+
+  get mana() {
+    return this._mana;
+  }
+
+  set mana(value) {
+    if (value < 0) {
+      this._mana = 0;
+    } else if (value > 50) {
+      this._mana = 50;
+    } else {
+      this._mana = value;
+    }
+  }
+
+  get level() {
+    return this._level;
+  }
+
+  levelUp() {
+    this._level += 1;
+    this.health = 100;
+    this.mana = 50;
+    alert(`${this.name} leveled up to ${this.level}!`);
+  }
+}
+
+// DOM Elements
+const createBtn = document.getElementById('createBtn');
+const nameInput = document.getElementById('nameInput');
+const heroStatsDiv = document.getElementById('heroStats');
+const heroNameEl = document.querySelector('.hero-name');
+const levelDisplay = document.getElementById('levelDisplay');
+const healthBar = document.getElementById('healthBar');
+const healthValue = document.getElementById('healthValue');
+const manaBar = document.getElementById('manaBar');
+const manaValue = document.getElementById('manaValue');
+const levelUpBtn = document.getElementById('levelUpBtn');
+
+let hero = null;
+
+// Function to update UI
+function updateUI() {
+  if (!hero) return;
+  heroNameEl.textContent = hero.name;
+  levelDisplay.textContent = hero.level;
+  healthBar.value = hero.health;
+  healthValue.textContent = hero.health;
+  manaBar.max = 50;
+  manaBar.value = hero.mana;
+  manaValue.textContent = hero.mana;
+}
+
+// Create hero
+createBtn.addEventListener('click', () => {
+  const name = nameInput.value.trim();
+  if (!name) {
+    alert('Please enter a hero name!');
+    return;
+  }
+  hero = new GameCharacter(name);
+  document.querySelector('.stats-card').classList.remove('hidden');
+  updateUI();
+});
+
+// Level Up
+levelUpBtn.addEventListener('click', () => {
+  if (!hero) return;
+  hero.levelUp();
+  updateUI();
+});
+
+// Adjust stats buttons
+document.querySelectorAll('.adjust-buttons button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (!hero) return;
+    const type = btn.getAttribute('data-type');
+    const change = parseInt(btn.getAttribute('data-change'));
+    if (type === 'health') {
+      hero.health += change;
+    } else if (type === 'mana') {
+      hero.mana += change;
+    }
+    updateUI();
+  });
+});
