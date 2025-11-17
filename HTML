@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Game Character Stats Tracker</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🎮 Epic Character Dashboard 🎮</h1>
+    <p>Create and Manage Your Hero's Stats</p>
+  </header>
+
+  <section class="creator-section">
+    <input type="text" id="nameInput" placeholder="Enter your hero's name" />
+    <button id="createBtn">Create Hero</button>
+  </section>
+
+  <div id="heroStats" class="stats-card hidden">
+    <h2 class="hero-name"></h2>
+    <div class="stats">
+      <div class="stat">
+        <label>Level:</label>
+        <span id="levelDisplay">1</span>
+        <button id="levelUpBtn">Level Up</button>
+      </div>
+      <div class="stat">
+        <label>Health:</label>
+        <progress id="healthBar" max="100" value="100"></progress>
+        <span id="healthValue">100</span>
+        <div class="adjust-buttons">
+          <button data-type="health" data-change="-10">-10</button>
+          <button data-type="health" data-change="+10">+10</button>
+        </div>
+      </div>
+      <div class="stat">
+        <label>Mana:</label>
+        <progress id="manaBar" max="50" value="50"></progress>
+        <span id="manaValue">50</span>
+        <div class="adjust-buttons">
+          <button data-type="mana" data-change="-5">-5</button>
+          <button data-type="mana" data-change="+5">+5</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
