@@ -1,0 +1,172 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Body styling with a cosmic theme */
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container styling */
+.container {
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: floatIn 1s ease-out;
+}
+
+/* Header styles */
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700;
+}
+
+header p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Creator section styles */
+.creator-section {
+  margin-bottom: 30px;
+}
+
+#nameInput {
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  width: 60%;
+  max-width: 300px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+#nameInput:focus {
+  box-shadow: 0 0 10px #ffd700;
+}
+
+#createBtn {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#createBtn:hover {
+  background-color: #e6c200;
+}
+
+/* Stats card styles */
+.stats-card {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  margin-top: 20px;
+  animation: fadeIn 1s ease-out;
+}
+
+.stats-card.hidden {
+  display: none;
+}
+
+.hero-name {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 0 0 8px #fff;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual stat styles */
+.stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+label {
+  font-size: 1.2em;
+}
+
+progress {
+  width: 150px;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #ffd700;
+  border-radius: 10px;
+}
+
+#healthValue, #manaValue {
+  margin-left: 10px;
+  font-size: 1.2em;
+  min-width: 30px;
+  display: inline-block;
+  text-align: right;
+}
+
+.adjust-buttons {
+  margin-left: 20px;
+}
+
+.adjust-buttons button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.adjust-buttons button:hover {
+  background-color: #ffd700;
+}
+
+/* Animations */
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
